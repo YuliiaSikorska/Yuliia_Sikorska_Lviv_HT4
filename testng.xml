@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="SmokeSuite" parallel="tests">
+    <test name="tests.SmokeTestsChrome" parallel="methods" thread-count="2">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="foxtrotTests.ProductDetailsPageTests">
+                <methods>
+                    <include name="checkCreditMonthlyPayAmount"/>
+                    <include name="checkCompareTooltip"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="tests.SmokeTestsFirefox" parallel="methods" thread-count="1">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="foxtrotTests.CheckoutPageTests">
+                <methods>
+                    <include name="checkProductPriceAfterIncreasingQuantity"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
